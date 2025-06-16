@@ -31,7 +31,7 @@ Table: Countries
    - Enables regional analysis (sales, customers) by country.
    - CountyID acts as the joining key; ensure Cities[CountyID] has matching values.
 
-### Table: Customers
+Table: Customers
 - Role: Dimension table storing customer details.
 - Primary Key: CustomerID
 - Key Columns: CustomerID, FirstName, LastName, MiddleInitial, Address, CityID

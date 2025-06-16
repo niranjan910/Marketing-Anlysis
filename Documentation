@@ -1,0 +1,6 @@
+### Table: Categories
+- Role: Dimension table that stores product category information.
+- Primary Key: CategoryID
+- Key Columns: CategoryID, CategoryName
+- Relationships: Connects to the Products table through CategoryID.
+- Notes: Used to categorize products into groups (e.g., beverages, snacks).

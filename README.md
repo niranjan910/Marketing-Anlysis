@@ -69,7 +69,7 @@
    - CategoryID connects to Categories table for grouping
    - Enables product-level sales insights (e.g., top products, allergy filters, etc.)
 
-### Table: Sales
+Table: Sales
 - Role: Fact table containing transaction-level sales data.
 - Primary Key: SalesID (or TransactionNumber if SalesID is not unique)
 - Key Columns:

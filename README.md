@@ -100,6 +100,17 @@ Table: Categories
 - Primary Key Confirmed: Yes (CategoryID)
 ✅ Status: Clean and ready
 
+Table: Categories
+- Missing Values: None
+- Duplicates: None in CategoryID
+- Data Types: All valid
+- Value Count: 6 categories
+- Spelling: Clean
+- Unused Keys: All used in Products
+- Primary Key Confirmed: Yes (CategoryID)
+✅ Status: Clean and ready
+
+
 
 
 

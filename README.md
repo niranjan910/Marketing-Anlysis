@@ -42,7 +42,7 @@ Table: Customers
    - Enables demographic and geographic sales analysis.
    - Address info can be enhanced by joining with Cities → Countries.
 
-### Table: Employees
+Table: Employees
 - Role: Dimension table that stores employee (salesperson) information.
 - Primary Key: EmployeeID
 - Key Columns: EmployeeID, FirstName, LastName, Gender, BirthDate, HireDate, CityID

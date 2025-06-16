@@ -21,3 +21,14 @@
    - Connects to Countries via CountyID
 - Notes: Ensures geographic breakdown of customers and employees.
 
+### Table: Countries
+- Role: Dimension table containing country-level information.
+- Primary Key: CountyID (used as CountryID)
+- Key Columns: CountyID, CountyCode, CountryName
+- Relationships:
+   - One-to-many (1:*) with Cities table via CountyID
+- Notes:
+   - Enables regional analysis (sales, customers) by country.
+   - CountyID acts as the joining key; ensure Cities[CountyID] has matching values.
+
+

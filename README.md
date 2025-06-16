@@ -53,7 +53,7 @@ Table: Employees
    - Enables sales performance tracking by salesperson
    - CityID links employees to locations for geographic analysis
 
-### Table: Products
+Table: Products
 - Role: Dimension table that stores detailed product information.
 - Primary Key: ProductID
 - Key Columns:

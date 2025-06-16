@@ -12,7 +12,7 @@ Table: Categories
 - Relationships: Connects to the Products table through CategoryID.
 - Notes: Used to categorize products into groups (e.g., beverages, snacks).
 
-### Table: Cities
+Table: Cities
 - Role: Dimension table containing city-level information.
 - Primary Key: CityID
 - Key Columns: CityID, CityName, ZipCode, CountyID

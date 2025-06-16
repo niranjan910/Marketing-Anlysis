@@ -42,4 +42,28 @@
    - Enables demographic and geographic sales analysis.
    - Address info can be enhanced by joining with Cities → Countries.
 
+### Table: Employees
+- Role: Dimension table that stores employee (salesperson) information.
+- Primary Key: EmployeeID
+- Key Columns: EmployeeID, FirstName, LastName, Gender, BirthDate, HireDate, CityID
+- Relationships:
+   - Many-to-one ( *:1 ) with Cities via CityID
+   - EmployeeID is used in Sales table as SalesPersonID (check for mapping)
+- Notes:
+   - Enables sales performance tracking by salesperson
+   - CityID links employees to locations for geographic analysis
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

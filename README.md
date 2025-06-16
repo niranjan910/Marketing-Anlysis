@@ -100,15 +100,18 @@ Table: Categories
 - Primary Key Confirmed: Yes (CategoryID)
 ✅ Status: Clean and ready
 
-Table: Categories
-- Missing Values: None
-- Duplicates: None in CategoryID
-- Data Types: All valid
-- Value Count: 6 categories
-- Spelling: Clean
-- Unused Keys: All used in Products
-- Primary Key Confirmed: Yes (CategoryID)
-✅ Status: Clean and ready
+### Data Exploration - Cities Table
+
+- Missing Values: None found ✅
+- Duplicates: No duplicates in CityID ✅
+- Data Types: Correct (CityID = number, ZipCode = text) ✅
+- CityName: Spelling consistent; cleaned casing ✅
+- CountryID: All values valid and match Countries table ✅
+- Primary Key Confirmed: CityID ✅
+- Relationships Confirmed:
+   - Used in Customers and Employees
+✅ Status: Clean and Ready
+
 
 
 

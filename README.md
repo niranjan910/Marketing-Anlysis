@@ -5,7 +5,7 @@
 
 ## Data Understanding
 
-### Table: Categories
+Table: Categories
 - Role: Dimension table that stores product category information.
 - Primary Key: CategoryID
 - Key Columns: CategoryID, CategoryName

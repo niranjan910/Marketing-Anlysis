@@ -125,6 +125,18 @@ Table: Categories
 - Primary Key Confirmed: Yes ✅
 ✅ Status: Clean and ready
 
+### Table - Customers 
+
+- Missing Values: None in CustomerID or CityID ✅
+- Names: Some blanks in MiddleInitial (acceptable) ✅
+- Duplicates: CustomerID is unique ✅
+- Data Types: All valid ✅
+- Spelling/Consistency: Names cleaned and capitalized ✅
+- Unused Keys: All CustomerIDs used in Sales ✅
+- Primary Key Confirmed: Yes ✅
+✅ Status: Clean and ready
+
+
 
 
 

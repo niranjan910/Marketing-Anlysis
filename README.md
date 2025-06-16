@@ -180,6 +180,7 @@ Table: Categories
 - Primary Key Confirmed: Yes ✅
 ✅ Status: Clean and analysis-ready
 
+## Data Modeling
 
 
 

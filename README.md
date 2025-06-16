@@ -136,6 +136,21 @@ Table: Categories
 - Primary Key Confirmed: Yes ✅
 ✅ Status: Clean and ready
 
+### Table - Employees 
+
+- Missing Values:
+   - None in EmployeeID or CityID ✅
+   - BirthDate & HireDate complete ✅
+- Duplicates: EmployeeID is unique ✅
+- Data Types:
+   - Dates properly formatted ✅
+   - Gender values standardized (M/F) ✅
+- Spelling/Consistency: Names and Gender cleaned ✅
+- Unused Keys: All EmployeeIDs linked with Sales ✅
+- Primary Key Confirmed: Yes ✅
+✅ Status: Clean and ready
+
+
 
 
 

@@ -11,3 +11,13 @@
 - Key Columns: CategoryID, CategoryName
 - Relationships: Connects to the Products table through CategoryID.
 - Notes: Used to categorize products into groups (e.g., beverages, snacks).
+
+### Table: Cities
+- Role: Dimension table containing city-level information.
+- Primary Key: CityID
+- Key Columns: CityID, CityName, ZipCode, CountyID
+- Relationships:
+   - One-to-many (1:*) with Customers and Employees
+   - Connects to Countries via CountyID
+- Notes: Ensures geographic breakdown of customers and employees.
+

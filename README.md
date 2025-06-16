@@ -166,6 +166,20 @@ Table: Categories
 - Primary Key Confirmed: Yes ✅
 ✅ Status: Clean and ready
 
+### Table - Sales 
+
+- Missing Values: None in key columns ✅
+- Duplicates: SalesID is unique ✅
+- Data Types:
+   - Dates and numbers validated ✅
+   - Discounts between 0–1 confirmed ✅
+- Value Ranges:
+   - Quantity and TotalPrice > 0 ✅
+- Foreign Keys:
+   - All linked to Products, Customers, Employees ✅
+- Primary Key Confirmed: Yes ✅
+✅ Status: Clean and analysis-ready
+
 
 
 

@@ -100,7 +100,7 @@ Table: Categories
 - Primary Key Confirmed: Yes (CategoryID)
 ✅ Status: Clean and ready
 
-### Data Exploration - Cities Table
+Table: Cities 
 
 - Missing Values: None found ✅
 - Duplicates: No duplicates in CityID ✅

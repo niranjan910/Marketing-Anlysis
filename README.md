@@ -53,7 +53,21 @@
    - Enables sales performance tracking by salesperson
    - CityID links employees to locations for geographic analysis
 
-
+### Table: Products
+- Role: Dimension table that stores detailed product information.
+- Primary Key: ProductID
+- Key Columns:
+   - ProductID
+   - ProductName
+   - Price
+   - CategoryID
+   - Class, IsAllergic, Resistant, VitalityDays
+- Relationships:
+   - One-to-many (1:*) with Sales via ProductID
+   - Many-to-one (*:1) with Categories via CategoryID
+- Notes:
+   - CategoryID connects to Categories table for grouping
+   - Enables product-level sales insights (e.g., top products, allergy filters, etc.)
 
 
 

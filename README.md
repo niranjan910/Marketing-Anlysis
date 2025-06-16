@@ -12,7 +12,7 @@ Table: Categories
 - Relationships: Connects to the Products table through CategoryID.
 - Notes: Used to categorize products into groups (e.g., beverages, snacks).
 
-Table: Cities
+### Table: Cities
 - Role: Dimension table containing city-level information.
 - Primary Key: CityID
 - Key Columns: CityID, CityName, ZipCode, CountyID
@@ -21,7 +21,7 @@ Table: Cities
    - Connects to Countries via CountyID
 - Notes: Ensures geographic breakdown of customers and employees.
 
-Table: Countries
+### Table: Countries
 - Role: Dimension table containing country-level information.
 - Primary Key: CountyID (used as CountryID)
 - Key Columns: CountyID, CountyCode, CountryName
@@ -31,7 +31,7 @@ Table: Countries
    - Enables regional analysis (sales, customers) by country.
    - CountyID acts as the joining key; ensure Cities[CountyID] has matching values.
 
-Table: Customers
+### Table: Customers
 - Role: Dimension table storing customer details.
 - Primary Key: CustomerID
 - Key Columns: CustomerID, FirstName, LastName, MiddleInitial, Address, CityID
@@ -42,7 +42,7 @@ Table: Customers
    - Enables demographic and geographic sales analysis.
    - Address info can be enhanced by joining with Cities → Countries.
 
-Table: Employees
+### Table: Employees
 - Role: Dimension table that stores employee (salesperson) information.
 - Primary Key: EmployeeID
 - Key Columns: EmployeeID, FirstName, LastName, Gender, BirthDate, HireDate, CityID
@@ -53,7 +53,7 @@ Table: Employees
    - Enables sales performance tracking by salesperson
    - CityID links employees to locations for geographic analysis
 
-Table: Products
+### Table: Products
 - Role: Dimension table that stores detailed product information.
 - Primary Key: ProductID
 - Key Columns:
@@ -69,7 +69,7 @@ Table: Products
    - CategoryID connects to Categories table for grouping
    - Enables product-level sales insights (e.g., top products, allergy filters, etc.)
 
-Table: Sales
+### Table: Sales
 - Role: Fact table containing transaction-level sales data.
 - Primary Key: SalesID (or TransactionNumber if SalesID is not unique)
 - Key Columns:
@@ -90,7 +90,7 @@ Table: Sales
 
 ## Data Exploration 
 
-Table: Categories
+### Table: Categories
 - Missing Values: None
 - Duplicates: None in CategoryID
 - Data Types: All valid
@@ -100,7 +100,7 @@ Table: Categories
 - Primary Key Confirmed: Yes (CategoryID)
 ✅ Status: Clean and ready
 
-Table: Cities 
+### Table: Cities 
 
 - Missing Values: None found ✅
 - Duplicates: No duplicates in CityID ✅
@@ -112,7 +112,7 @@ Table: Cities
    - Used in Customers and Employees
 ✅ Status: Clean and Ready
 
-Table: Countries
+### Table: Countries
 
 - Missing Values: None ✅
 - Duplicates: CountryID is unique ✅

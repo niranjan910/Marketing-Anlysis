@@ -69,6 +69,24 @@
    - CategoryID connects to Categories table for grouping
    - Enables product-level sales insights (e.g., top products, allergy filters, etc.)
 
+### Table: Sales
+- Role: Fact table containing transaction-level sales data.
+- Primary Key: SalesID (or TransactionNumber if SalesID is not unique)
+- Key Columns:
+   - SalesID / TransactionNumber
+   - CustomerID
+   - ProductID
+   - SalesPersonID (EmployeeID)
+   - SalesDate
+   - TotalPrice, Discount, Quantity
+- Relationships:
+   - Many-to-one (*:1) with:
+     - Customers via CustomerID
+     - Products via ProductID
+     - Employees via SalesPersonID
+- Notes:
+   - Core table for all revenue, customer behavior, and product sales analysis.
+   - Make sure no missing foreign keys (i.e., all IDs should match related tables).
 
 
 

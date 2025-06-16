@@ -3,7 +3,7 @@
 
 ---
 
-## Data Exploration
+## Data Understanding
 
 ### Table: Categories
 - Role: Dimension table that stores product category information.

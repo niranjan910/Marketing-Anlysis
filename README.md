@@ -112,6 +112,18 @@ Table: Cities
    - Used in Customers and Employees
 ✅ Status: Clean and Ready
 
+Table: Countries
+
+- Missing Values: None ✅
+- Duplicates: CountryID is unique ✅
+- Data Types:
+   - CountryID: Whole Number ✅
+   - CountryCode: Text ✅
+   - CountryName: Text ✅
+- CountryName: Cleaned, consistent casing ✅
+- Unused Foreign Keys: All CountryIDs used in Cities ✅
+- Primary Key Confirmed: Yes ✅
+✅ Status: Clean and ready
 
 
 

@@ -1,197 +1,164 @@
-## **Power BI Sales Intelligence Dashboard for a Multinational Grocery Retail Chain**
-- Built a dynamic Power BI dashboard for a multinational grocery chain using 7 interrelated tables. Delivered insights on sales trends, product performance, customer    behavior, and employee productivity. Used DAX, interactive visuals, and drill-downs to support strategic business decisions
+# 🧠 Power BI Sales Intelligence Dashboard  
+**Multinational Grocery Retail Chain (End-to-End Project)**
+
+This project presents a comprehensive **Power BI dashboard** built using **seven interrelated tables** from a multinational grocery retail dataset. It delivers key insights into **sales trends**, **product performance**, **customer demographics**, and **employee contributions** to support strategic decision-making.
 
 ---
 
-## Data Understanding
+## 📁 Dataset Overview
 
-Table: Categories
-- Role: Dimension table that stores product category information.
-- Primary Key: CategoryID
-- Key Columns: CategoryID, CategoryName
-- Relationships: Connects to the Products table through CategoryID.
-- Notes: Used to categorize products into groups (e.g., beverages, snacks).
+**Source:** [Grocery Sales Dataset – Kaggle](https://www.kaggle.com/datasets/andrexibiza/grocery-sales-dataset)  
+**Tables Used:**  
+1. Categories  
+2. Cities  
+3. Countries  
+4. Customers  
+5. Employees  
+6. Products  
+7. Sales  
 
-### Table: Cities
-- Role: Dimension table containing city-level information.
-- Primary Key: CityID
-- Key Columns: CityID, CityName, ZipCode, CountyID
-- Relationships:
-   - One-to-many (1:*) with Customers and Employees
-   - Connects to Countries via CountyID
-- Notes: Ensures geographic breakdown of customers and employees.
+---
 
-### Table: Countries
-- Role: Dimension table containing country-level information.
-- Primary Key: CountyID (used as CountryID)
-- Key Columns: CountyID, CountyCode, CountryName
-- Relationships:
-   - One-to-many (1:*) with Cities table via CountyID
-- Notes:
-   - Enables regional analysis (sales, customers) by country.
-   - CountyID acts as the joining key; ensure Cities[CountyID] has matching values.
+## 🔍 Data Understanding
 
-### Table: Customers
-- Role: Dimension table storing customer details.
-- Primary Key: CustomerID
-- Key Columns: CustomerID, FirstName, LastName, MiddleInitial, Address, CityID
-- Relationships:
-   - Many-to-one ( *:1 ) with Cities (via CityID)
-   - One-to-many ( 1:* ) with Sales (via CustomerID)
-- Notes:
-   - Enables demographic and geographic sales analysis.
-   - Address info can be enhanced by joining with Cities → Countries.
+### 🟦 Categories
+- **Role:** Product grouping dimension
+- **Primary Key:** `CategoryID`
+- **Columns:** `CategoryID`, `CategoryName`
+- **Relationship:** Linked to `Products` via `CategoryID`
+- **Use Case:** Product segmentation
 
-### Table: Employees
-- Role: Dimension table that stores employee (salesperson) information.
-- Primary Key: EmployeeID
-- Key Columns: EmployeeID, FirstName, LastName, Gender, BirthDate, HireDate, CityID
-- Relationships:
-   - Many-to-one ( *:1 ) with Cities via CityID
-   - EmployeeID is used in Sales table as SalesPersonID (check for mapping)
-- Notes:
-   - Enables sales performance tracking by salesperson
-   - CityID links employees to locations for geographic analysis
+---
 
-### Table: Products
-- Role: Dimension table that stores detailed product information.
-- Primary Key: ProductID
-- Key Columns:
-   - ProductID
-   - ProductName
-   - Price
-   - CategoryID
-   - Class, IsAllergic, Resistant, VitalityDays
-- Relationships:
-   - One-to-many (1:*) with Sales via ProductID
-   - Many-to-one (*:1) with Categories via CategoryID
-- Notes:
-   - CategoryID connects to Categories table for grouping
-   - Enables product-level sales insights (e.g., top products, allergy filters, etc.)
+### 🟩 Cities
+- **Role:** Geographic dimension
+- **Primary Key:** `CityID`
+- **Columns:** `CityID`, `CityName`, `ZipCode`, `CountyID`
+- **Relationships:**
+  - One-to-many with `Customers`, `Employees`
+  - Many-to-one with `Countries` via `CountyID`
+- **Use Case:** City-level sales and staffing analysis
 
-### Table: Sales
-- Role: Fact table containing transaction-level sales data.
-- Primary Key: SalesID (or TransactionNumber if SalesID is not unique)
-- Key Columns:
-   - SalesID / TransactionNumber
-   - CustomerID
-   - ProductID
-   - SalesPersonID (EmployeeID)
-   - SalesDate
-   - TotalPrice, Discount, Quantity
-- Relationships:
-   - Many-to-one (*:1) with:
-     - Customers via CustomerID
-     - Products via ProductID
-     - Employees via SalesPersonID
-- Notes:
-   - Core table for all revenue, customer behavior, and product sales analysis.
-   - Make sure no missing foreign keys (i.e., all IDs should match related tables).
+---
 
-## Data Exploration 
+### 🌍 Countries
+- **Role:** Geographic hierarchy
+- **Primary Key:** `CountyID` (used as `CountryID`)
+- **Columns:** `CountyID`, `CountyCode`, `CountryName`
+- **Relationship:** One-to-many with `Cities`
+- **Use Case:** Regional performance breakdown
 
-### Table: Categories
-- Missing Values: None
-- Duplicates: None in CategoryID
-- Data Types: All valid
-- Value Count: 6 categories
-- Spelling: Clean
-- Unused Keys: All used in Products
-- Primary Key Confirmed: Yes (CategoryID)
-✅ Status: Clean and ready
+---
 
-### Table: Cities 
+### 👥 Customers
+- **Role:** Buyer dimension
+- **Primary Key:** `CustomerID`
+- **Columns:** `CustomerID`, `FirstName`, `LastName`, `MiddleInitial`, `Address`, `CityID`
+- **Relationships:**
+  - Many-to-one with `Cities`
+  - One-to-many with `Sales`
+- **Use Case:** Customer profiling and location mapping
 
-- Missing Values: None found ✅
-- Duplicates: No duplicates in CityID ✅
-- Data Types: Correct (CityID = number, ZipCode = text) ✅
-- CityName: Spelling consistent; cleaned casing ✅
-- CountryID: All values valid and match Countries table ✅
-- Primary Key Confirmed: CityID ✅
-- Relationships Confirmed:
-   - Used in Customers and Employees
-✅ Status: Clean and Ready
+---
 
-### Table: Countries
+### 👨‍💼 Employees
+- **Role:** Sales team dimension
+- **Primary Key:** `EmployeeID`
+- **Columns:** `EmployeeID`, `FirstName`, `LastName`, `Gender`, `BirthDate`, `HireDate`, `CityID`
+- **Relationships:**
+  - Many-to-one with `Cities`
+  - Referenced by `Sales` via `SalesPersonID`
+- **Use Case:** Employee-level sales tracking
 
-- Missing Values: None ✅
-- Duplicates: CountryID is unique ✅
-- Data Types:
-   - CountryID: Whole Number ✅
-   - CountryCode: Text ✅
-   - CountryName: Text ✅
-- CountryName: Cleaned, consistent casing ✅
-- Unused Foreign Keys: All CountryIDs used in Cities ✅
-- Primary Key Confirmed: Yes ✅
-✅ Status: Clean and ready
+---
 
-### Table - Customers 
+### 📦 Products
+- **Role:** SKU-level product data
+- **Primary Key:** `ProductID`
+- **Columns:** `ProductID`, `ProductName`, `Price`, `CategoryID`, `Class`, `IsAllergic`, `Resistant`, `VitalityDays`, `ModifyDate`
+- **Relationships:**
+  - One-to-many with `Sales`
+  - Many-to-one with `Categories`
+- **Use Case:** Product performance and filtering (e.g., allergies, price)
 
-- Missing Values: None in CustomerID or CityID ✅
-- Names: Some blanks in MiddleInitial (acceptable) ✅
-- Duplicates: CustomerID is unique ✅
-- Data Types: All valid ✅
-- Spelling/Consistency: Names cleaned and capitalized ✅
-- Unused Keys: All CustomerIDs used in Sales ✅
-- Primary Key Confirmed: Yes ✅
-✅ Status: Clean and ready
+---
 
-### Table - Employees 
+### 💰 Sales (Fact Table)
+- **Role:** Transaction-level fact table
+- **Primary Key:** `SalesID` or `TransactionNumber`
+- **Columns:** `SalesID`, `TransactionNumber`, `CustomerID`, `ProductID`, `SalesPersonID`, `SalesDate`, `TotalPrice`, `Discount`, `Quantity`
+- **Relationships:** 
+  - Many-to-one with `Customers`, `Products`, `Employees`
+- **Use Case:** Central table for all KPIs and visualizations
 
-- Missing Values:
-   - None in EmployeeID or CityID ✅
-   - BirthDate & HireDate complete ✅
-- Duplicates: EmployeeID is unique ✅
-- Data Types:
-   - Dates properly formatted ✅
-   - Gender values standardized (M/F) ✅
-- Spelling/Consistency: Names and Gender cleaned ✅
-- Unused Keys: All EmployeeIDs linked with Sales ✅
-- Primary Key Confirmed: Yes ✅
-✅ Status: Clean and ready
+---
 
-### Table - Products 
+## 🧪 Data Exploration Summary
 
-- Missing Values: None in critical columns ✅
-- Duplicates: ProductID is unique ✅
-- Data Types:
-   - Price = Decimal ✅
-   - ModifyDate = Date ✅
-   - CategoryID, VitalityDays = Whole Number ✅
-   - IsAllergic and Resistant: Cleaned and standardized ✅
-- Spelling/Consistency: Fixed Class and Resistant values ✅
-- Foreign Keys:
-   - All ProductIDs used in Sales ✅
-   - All CategoryIDs match Category table ✅
-- Primary Key Confirmed: Yes ✅
-✅ Status: Clean and ready
+### ✅ Categories
+- No missing values or duplicates
+- All IDs and names validated
+- All foreign keys used
+- ✔️ Clean & Ready
 
-### Table - Sales 
+### ✅ Cities
+- Valid data types and IDs
+- Consistent spelling and casing
+- Foreign keys correctly mapped to `Countries`
+- ✔️ Clean & Ready
 
-- Missing Values: None in key columns ✅
-- Duplicates: SalesID is unique ✅
-- Data Types:
-   - Dates and numbers validated ✅
-   - Discounts between 0–1 confirmed ✅
-- Value Ranges:
-   - Quantity and TotalPrice > 0 ✅
-- Foreign Keys:
-   - All linked to Products, Customers, Employees ✅
-- Primary Key Confirmed: Yes ✅
-✅ Status: Clean and analysis-ready
+### ✅ Countries
+- Unique `CountyID`s
+- No missing values
+- Country names and codes standardized
+- ✔️ Clean & Ready
 
-## Data Modeling
+### ✅ Customers
+- No critical missing values
+- Names formatted and capitalized
+- Connected to `Cities` and `Sales`
+- ✔️ Clean & Ready
 
+### ✅ Employees
+- Birth and hire dates validated
+- Gender values standardized
+- No missing keys
+- ✔️ Clean & Ready
 
+### ✅ Products
+- Clean prices and categories
+- Proper formatting for binary fields
+- Foreign keys match with `Categories` and `Sales`
+- ✔️ Clean & Ready
 
+### ✅ Sales
+- No missing values in critical columns
+- Discounts within expected range
+- Date, quantity, and price values validated
+- ✔️ Clean & Ready
 
+---
 
+## 🔗 Data Modeling
 
+### Relationship Summary
 
+| Table 1     | Column          | ➡️ | Table 2     | Column       | Relationship Type |
+|-------------|------------------|----|--------------|---------------|--------------------|
+| Sales       | CustomerID       | ➡️ | Customers     | CustomerID     | Many-to-One        |
+| Sales       | ProductID        | ➡️ | Products      | ProductID      | Many-to-One        |
+| Sales       | SalesPersonID    | ➡️ | Employees     | EmployeeID     | Many-to-One        |
+| Products    | CategoryID       | ➡️ | Categories    | CategoryID     | Many-to-One        |
+| Customers   | CityID           | ➡️ | Cities        | CityID         | Many-to-One        |
+| Employees   | CityID           | ➡️ | Cities        | CityID         | 🔸 *Inactive* (to avoid ambiguity) |
+| Cities      | CountyID         | ➡️ | Countries     | CountyID       | Many-to-One        |
 
+✔️ Model follows **Star Schema**, with `Sales` as the fact table surrounded by dimension tables.  
 
+---
 
+> ✅ **Next Step:** DAX Measures Creation
 
+---
 
-
-
+Let me know if you’d like this in **MS Word format** too (for documentation), or if you're ready to move on to DAX and visuals!

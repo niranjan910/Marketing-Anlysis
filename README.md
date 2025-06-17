@@ -159,5 +159,3 @@ This project presents a comprehensive **Power BI dashboard** built using **seven
 > ✅ **Next Step:** DAX Measures Creation
 
 ---
-
-Let me know if you’d like this in **MS Word format** too (for documentation), or if you're ready to move on to DAX and visuals!

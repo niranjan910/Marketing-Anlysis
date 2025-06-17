@@ -7,7 +7,6 @@ This project presents a comprehensive **Power BI dashboard** built using **seven
 
 ## 📁 Dataset Overview
 
-**Source:** [Grocery Sales Dataset – Kaggle](https://www.kaggle.com/datasets/andrexibiza/grocery-sales-dataset)  
 **Tables Used:**  
 1. Categories  
 2. Cities  
